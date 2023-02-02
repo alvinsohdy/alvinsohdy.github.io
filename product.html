@@ -41,6 +41,7 @@
                     value: 49.99,
                     currency: "USD",
                     productId: "1005492-465",
+                    quantity: 1,
                 }
             });
         };
@@ -53,7 +54,6 @@
                     uniqueTransactionId: "123456", // Will remove redundant events. Must be a string. Max 64 characters.
                     dyType: "purchase-v1", // Identifies this event as a purchase
                     value: 49.99, // Total cart value in actual payment currency, as float (dollars dot cents)
-                    currency: "any supported currency code", // Optional non-default currency used
                     cart: [
                         // itemPrice is per quantity of one, and in the same format as the total "value":
                         // float of dollars.cents in the payment currency (which is only defined once above)
