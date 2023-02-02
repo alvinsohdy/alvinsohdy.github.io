@@ -18,12 +18,52 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+    <title>Product</title>
   </head>
   <body>
     <nav>
         <a href="./index.html">Home</a>
         <a href="./product.html">Product</a>
+
+        <div class="button">
+            <button onclick="addToCart">Add to Cart</button>
+            <button onclick="purchase">Purchase</button>
+        </div>
     </nav>
+
+    <script>
+        function addToCart() {
+            DY.API("event", {
+                name: "Add to Cart",
+                properties: {
+                    dyType: "add-to-cart-v1",
+                    value: 49.99,
+                    currency: "USD",
+                    productId: "1005492-465",
+                }
+            });
+        };
+
+        function purchase() {
+            DY.API("event", {
+                name: "Purchase", // Human-readable name, not used to identify an event type
+                properties: {
+                    uniqueTransactionId: "123456", // Will remove redundant events. Must be a string. Max 64 characters.
+                    dyType: "purchase-v1", // Identifies this event as a purchase
+                    value: 49.99, // Total cart value in actual payment currency, as float (dollars dot cents)
+                    currency: "any supported currency code", // Optional non-default currency used
+                    cart: [
+                        // itemPrice is per quantity of one, and in the same format as the total "value":
+                        // float of dollars.cents in the payment currency (which is only defined once above)
+                        {
+                            productId: "1005492-465", // SKU exactly as in the product feed!
+                            quantity: 1,
+                            itemPrice: 49.99,
+                        },
+                    ]
+                }
+            });
+        };
+    </script>
   </body>
 </html>
