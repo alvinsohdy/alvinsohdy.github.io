@@ -33,6 +33,7 @@
 
     <script>
         function addToCart() {
+            console.log("in add to cart");
             DY.API("event", {
                 name: "Add to Cart",
                 properties: {
@@ -45,6 +46,7 @@
         };
 
         function purchase() {
+            console.log("in purchase");
             DY.API("event", {
                 name: "Purchase", // Human-readable name, not used to identify an event type
                 properties: {
