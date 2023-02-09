@@ -66,6 +66,12 @@
                 }
             });
         };
+        
+        var container= document.getElementById('widget');
+        container.innerHTML += "<div data-dy-widget-id='744221' data-dy-feed-id='feed_id'>";
+        var itemData = "<div data-dy-product-id='item.sku' data-dy-strategy-id='item.str_id'>";
+        container.innerHTML += itemData;
+        container.innerHTML += "</div>";
 
         DYO.recommendations.registerElements(el);
     </script>
