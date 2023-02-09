@@ -67,11 +67,31 @@
             });
         };
         
-        var container= document.getElementById('widget');
-        container.innerHTML += "<div data-dy-widget-id='744221' data-dy-feed-id='feed_id'>";
-        var itemData = "<div data-dy-product-id='item.sku' data-dy-strategy-id='item.str_id'>";
-        container.innerHTML += itemData;
-        container.innerHTML += "</div>";
+        DYO.recommendationWidgetData(212777,{},function(error, data) {
+            if (error) {
+                console.log(error);
+            }
+            
+            var rcomData = data;
+            
+            var response = Object.keys(rcomData.response);
+            var widgetID = response.wId;
+            var feedID = response.fId;
+            var slots = response.slots;
+
+            console.log(slots);
+            
+            var container= document.getElementById('widget');
+            container.innerHTML += "<div data-dy-widget-id='744221' data-dy-feed-id='" + feedID + "'>";
+            
+            for(var i=0;i<slots.length;i++) {
+              var item = slots[i];
+              var itemData = "<div data-dy-product-id='" + item.sku + "' data-dy-strategy-id='" + item.strId + "'>";
+              container.innerHTML += itemData;
+            }
+            
+            container.innerHTML += "</div>";
+        })
 
         DYO.recommendations.registerElements(el);
     </script>
