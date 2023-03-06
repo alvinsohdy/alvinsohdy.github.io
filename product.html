@@ -38,7 +38,7 @@
         function addToCart() {
             console.log("in add to cart");
             DY.API("event", {
-                name: "Add to Cart",
+                name: "Alvin Add to Cart",
                 properties: {
                     dyType: "add-to-cart-v1",
                     value: 49.99,
@@ -51,7 +51,7 @@
         function purchase() {
             console.log("in purchase");
             DY.API("event", {
-                name: "Purchase", // Human-readable name, not used to identify an event type
+                name: "Alvin Purchase", // Human-readable name, not used to identify an event type
                 properties: {
                     uniqueTransactionId: "123456", // Will remove redundant events. Must be a string. Max 64 characters.
                     dyType: "purchase-v1", // Identifies this event as a purchase
@@ -71,7 +71,7 @@
 
         function removeFromCart() {
             DY.API("event", {
-                name: "Remove from Cart",
+                name: "Alvin Remove from Cart",
                 properties: {
                     dyType: "remove-from-cart-v1",
                     value: 49.99,
@@ -92,7 +92,7 @@
 
         function syncCart() {
             DY.API("event", {
-                name: "Sync cart",
+                name: "Alvin Sync cart",
                 properties: {
                     dyType: "sync-cart-v1",
                     currency: "any supported currency code", // Optional non-default currency used
