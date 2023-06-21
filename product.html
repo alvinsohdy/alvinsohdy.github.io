@@ -31,6 +31,7 @@
             <button class="button2" onclick="purchase()">Purchase</button>
             <button class="button3" onclick="removeFromCart()">Remove From Cart</button>
             <button class="button4" onclick="syncCart()">Sync Cart</button>
+            <button class="button5" onclick="signUp()">Sync Cart</button>
         </div>
         <div id="widget"></div>
     </nav>
@@ -104,6 +105,17 @@
                             itemPrice: 49.99,
                         },
                     ]
+                }
+            });
+        }
+
+        function signUp() {
+            DY.API("event", {
+                name: "Alvin Sign Up",
+                properties: {
+                    dyType: "signup-v1",
+                    cuid: "phoneNumber",
+                    phoneNumber: "+972503803434"
                 }
             });
         }
