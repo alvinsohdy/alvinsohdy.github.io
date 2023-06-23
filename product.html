@@ -32,6 +32,7 @@
             <button class="button3" onclick="removeFromCart()">Remove From Cart</button>
             <button class="button4" onclick="syncCart()">Sync Cart</button>
             <button class="button5" onclick="signUp()">Sign Up</button>
+            <button class="button6" onclick="signUp()">Custom</button>
         </div>
         <div id="widget"></div>
     </nav>
@@ -58,7 +59,6 @@
                     uniqueTransactionId: "123456", // Will remove redundant events. Must be a string. Max 64 characters.
                     dyType: "purchase-v1", // Identifies this event as a purchase
                     value: 49.99, // Total cart value in actual payment currency, as float (dollars dot cents)
-                    contains_dior: "true",
                     cart: [
                         // itemPrice is per quantity of one, and in the same format as the total "value":
                         // float of dollars.cents in the payment currency (which is only defined once above)
@@ -121,6 +121,15 @@
                 }
             });
         }
+
+        function custom() {
+            DY.API("event", {
+                name: "Alvin Custom Event", // Human-readable name, not used to identify an event type
+                properties: {
+                    contains_dior: "true"
+                }
+            });
+        };
 
         // DY.API('callback', function() {
         //     DYO.recommendationWidgetData(212777,{},function(error, data) {
