@@ -35,6 +35,8 @@
             <button class="button6" onclick="custom()">Custom</button>
         </div>
         <div id="widget"></div>
+
+        <div id="dy_Test_DC_Trigger_by_Event"></div>
     </nav>
 
     <script>
@@ -48,6 +50,12 @@
                     productId: "1005492-465",
                     quantity: 1,
                 }
+            });
+
+            // fire Dynamic Content
+            DYO.smartObject("Test DC Trigger by Event", {
+                target: "dy_Test_DC_Trigger_by_Event",
+                inline: true
             });
         };
 
