@@ -22,7 +22,7 @@
   </head>
   <body>
     <nav>
-        <a href="./index.html">Home</a>
+        <a href="#" onclick="testHome()">Home</a>
         <a href="./product.html">Product</a>
         <a href="./cart.html">Cart</a>
 
@@ -77,12 +77,6 @@
                         },
                     ]
                 }
-            });
-
-            // hide Dynamic Content
-            DYO.smartObject("Test DC Trigger by Event", {
-                target: "dy_Test_DC_Trigger_by_Event",
-                inline: false
             });
         };
 
@@ -144,6 +138,11 @@
                 }
             });
         };
+
+        function testHome() {
+            alert("Going home");
+            window.location.href('./index.html');
+        }
 
         // DY.API('callback', function() {
         //     DYO.recommendationWidgetData(212777,{},function(error, data) {
